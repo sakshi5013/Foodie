@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Foodies</title>
+    <style>
+        .btn {
+            border: 1px solid;
+            background-color: brown;
+            color: aliceblue;
+            height: 45px;
+            width: 150px;
+            font-size: 17px;
+        }
+        #image{
+            height: 45px;
+            width: 85px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            box-shadow: 2px 13px 17px 6px #cdcdcd;
+        }
+
+        h6 {
+            font-size: 20px;
+            margin-left: 40px;
+        }
+
+        .socials {
+            color: aliceblue;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3 rem 0
+        }
+
+        .socials li {
+            margin: 0 10px;
+        }
+
+        .socials li a {
+            text-decoration: none;
+            color: aliceblue;
+        }
+
+        .socials a:hover i {
+            color: yellow;
+        }
+        fade-carousel {
+    position: relative;
+    height: 100vh;
+}
+.fade-carousel .carousel-inner .item {
+    height: 100vh;
+}
+.fade-carousel .carousel-indicators > li {
+    margin: 0 2px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
+}
+.fade-carousel .carousel-indicators > li.active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s; 
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out .1s;
+       -moz-transition: 2s all ease-in-out .1s; 
+        -ms-transition: 2s all ease-in-out .1s; 
+         -o-transition: 2s all ease-in-out .1s; 
+            transition: 2s all ease-in-out .1s;    
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .1;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero,
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #f5f5f5;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    outline: none;
+    margin: 20px auto;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1, 
+.fade-carousel .slides .slide-2,
+.fade-carousel .slides .slide-3 {
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818); 
+}
+.fade-carousel .slides .slide-2 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af);
+}
+.fade-carousel .slides .slide-3 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327);
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }    
+}
+@media screen and (max-width: 640px){
+    .hero h1 { font-size: 4em; }    
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" style="background-color: rgb(93, 12, 12);">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"
+                    style="font-family:'Times New Roman', Times, serif; color: yellow; font-size: 30px; margin-top: 5px;"></a>
+                    <img id="image"src="images/logo.png" alt="">
+                    
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+                <ul class="nav navbar-nav navbar-right" style="font-size: 20px; margin-top: 5px;color: azure;">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html" target="_blank">About</a></li>
+                    <li><a href="Explorefood.html" target="_blank">ExploreFood</a></li>
+                    <li><a href="reviews.html" target="_blank">Reviews</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+        <!-- Overlay -->
+        <div class="overlay"></div>
+      
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#bs-carousel" data-slide-to="1"></li>
+        </ol>
+        
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item slides active">
+            <div class="slide-1">
+            <div class="hero">
+            <img src="" alt="">
+            </div>
+            </div>
+          
+          <div class="item slides">
+            <div class="slide-2">
+            <div class="hero">        
+            <img src="" alt="">
+            </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <br>
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-7 col-lg-7 col-md-7" style="height: 700px;">
+                <h1 style="margin-top: 100px; margin-left: 40px;font-size: 60px; color:rgb(93, 12, 12); "><b>Good Food
+                        Choices are Good Investments</b></h1>
+
+                <p style="margin-left: 50px;font-size: 20px; margin-top: 20px;">Lorem ipsum dolor sit amet consectetur,
+                    adipisicing elit. Autem deleniti neque rerum culpa ex.
+                    vel atque. Praesentium quibusdam sit perferendis veniam reprehenderit fugit!
+                </p>
+
+                <p style="margin-left: 50px;font-size: 20px; margin-top: 20px;">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Minus similique
+                    unde ea magnam error dignissimos non vel, quia iure cupiditate repudiandae illum qui
+                    nesciunt! Facilis possimus ad aliquid quo iste.
+                </p><br>
+
+                <button class="btn" style=" margin-left: 50px;">Order Now</button>
+            </div>
+
+            <div class="col-sm-5 col-lg-5 col-md-5" style="height: 700px; ">
+
+                <img src="images/header.jpg" alt="" style="height: 600px; width: 100%; margin-right: 20px; ">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-md-6">
+
+                <img src="images/about.jpeg" alt=""
+                    style="height: 500px; width: 100%; margin-left: 40px; border-radius: 10px;">
+
+            </div>
+            <div class="col-sm-6 col-lg-6 col-md-6">
+
+                <h1 style="font-size: 45px; margin-top: 50px;margin-left: 40px;"><b>We Pride Ourselves On Making Real
+                        Food From The Best Ingredients</b></h1>
+
+                <p style="margin-left:40px; margin-top: 30px; font-size: 20px;">Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Nobis
+                    praesentium necessitatibus harum provident adipisci reiciendis totam omnis tenetur </p>
+
+                <button class="btn" style="margin: 30px; margin-left: 40px;">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-md-6">
+
+                <h1 style="font-size: 40px; padding:50px;"><b>We Make Everything By Hands With The Best Possible
+                        Ingredients</b></h1>
+
+                <p style="font-size: 20px; padding-left: 50px;">Lorem ipsum dolor sit amet consectetur, adipisicing
+                    elit. Odio eveniet quis, ullam, tempore repellendus
+                    natus libero, in iure sed modi eaque rem non
+                    tenetur soluta. Modi quo maiores illum possimus.</p><br>
+
+                <h6><b style="color:rgb(93, 12, 12); "> &#x2714; </b>Lorem ipsum dolor sit amet consectetur.</h6>
+
+                <h6><b style="color:rgb(93, 12, 12); "> &#x2714; </b>saepe iste neque asperiores temporibus quasi.
+                    Nobis!</h6>
+
+                <h6><b style="color:rgb(93, 12, 12); "> &#x2714; </b>Lorem ipsum dolor sit amet.</h6>
+            </div>
+
+            <div class="col-sm-6 col-lg-6 col-md-6">
+                <div class="col-sm-6 col-lg-6 col-md-6">
+
+                    <img src="images/dessert.jpg" alt=""
+                        style="padding-left:50px; margin-top: 30px; height: 150px; width: 100%;">
+                </div>
+
+                <div class="col-sm-6 col-lg-6 col-md-6">
+
+                    <img src="images/pizza1.jpg" alt="" style="height:200px; width:100%; padding-top: 20px;">
+                </div><br>
+
+                <div class="col-sm-6 col-lg-6 col-md-6">
+
+                    <img src="images/chinese.jpg" alt="" style="height: 350px; width: 100%;">
+                </div>
+
+                <div class="col-sm-6 col-lg-6 col-md-6">
+
+                    <img src="images/rice.jpg" alt="" style="height: 300px; width:100ppx; margin-top: 20px;">
+                </div>
+
+            </div>
+
+            <br><br><br><br><br><br>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12 col-md-12"
+                        style="background-color: rgb(245, 238, 242); height: 300px; margin-top: 30px;">
+
+                        <h1 style="text-align: center; padding: 5px;"><b>When A Man's Stomach Is Full It Makes No
+                                <br>Difference Whether He Is
+                                Rich Or Poor</b></h1>
+
+                        <p style="text-align: center; padding: 20px;font-size: 17px;">Lorem ipsum dolor sit, amet
+                            consectetur adipisicing elit.
+                            Iure cupiditate obcaecati ut dolor ullam. Placeat sunt fugit doloremque cum?<br> Accusantium
+                            ratione
+                            voluptatum, hic fugiat necessitatibus fugit. Error quo a cumque.</p>
+
+                        <center><button class="btn">Read More</button></center>
+                    </div>
+                </div>
+
+            </div><br><br>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-12 col-lg-12 col-md-12" style="height: 720px; background-color: #f8f8f8;">
+
+                        <h2 style="text-align: center;padding: 10px;"><b>Explore Our Food</b></h2><br>
+
+                        <p style="text-align: center; font-size: 17px;">Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Omnis et beatae
+                            veniam iste
+                            exercitationem quis aliquid repellendus ducimus.<br> Blanditiis sequi provident, consequatur
+                            architecto officiis reprehenderit aliquid. Fuga quam dolorem natus? Lorem, ipsum Lorem,
+                            <br>ipsum
+                            dolor sit amet consectetur adipisicing elit. Laboriosam, minima!</p>
+                        <br><br>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+
+                            <div class="box-part" style="height: 550px; border-radius: 10px;">
+
+                                <center> <img src="images/sandwich.jpeg" alt=""
+                                        style="height: 300px; width:100%; border-radius: 15px;"><br></center>
+
+                                <h6 style="text-align: center;padding: 5px;">Vegetable Sandwich</h6>
+
+                                <h3 style="text-align: center;">$10.50</h3><br>
+
+                                <center> <button class="btn">Order Now</button></center>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="box-part" style=" height: 500px; border-radius: 10px;">
+
+                                <center><img src="images/pizza2.jpg" alt=""
+                                        style="height: 300px; width:100%; border-radius: 15px;"><br></center>
+
+                                <h6 style="text-align: center;padding: 5px;">Cheese Pizza</h6>
+
+                                <h3 style="text-align: center;">$10.50</h3><br>
+
+                                <center> <button class="btn">Order Now</button></center>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="box-part" style=" height: 500px; border-radius: 10px;">
+
+                                <center><img src="images/burger.jpg" alt=""
+                                        style="height: 300px; width:100%; border-radius: 15px;"><br></center>
+
+                                <h6 style="text-align: center;padding: 5px;">Veg Burger</h6>
+
+                                <h3 style="text-align: center;">$10.50</h3><br>
+
+                                <center> <button class="btn">Order Now</button></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <footer>
+                <div class="container-fluid" style="text-align: center; background-color: rgb(93, 12, 12);">
+
+                    <div class="col-sm-12 col-lg-12 col-md-12" style="border: 1px solid; height: auto;">
+
+                        <center>
+                            <h3 style="color: aliceblue;">Foodies</h3>
+                        </center>
+
+                        <p style="color: aliceblue;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Repellendus perferendis quae vel fuga recusandae, iure voluptate animi. </p>
+                        <center>
+
+                            <ul class="socials">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+
+                            </ul>
+
+                        </center>
+                    </div>
+                </div>
+            </footer>
+
+
+        </body>
+</html>
